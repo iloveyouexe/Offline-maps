@@ -6,6 +6,8 @@ const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 
+// change lat lng 
+
 app.get('/api/map', (req, res) => {
   const mapData = {
     center: [51.505, -0.09],
