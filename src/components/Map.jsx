@@ -14,7 +14,7 @@ function Map() {
   }, []);
 
   // Need to adjust z,x,y and set coordinates for further testing
-
+  // dont move this section 
   useEffect(() => {
     if (mapData) {
       const map = L.map('map').setView(mapData.center, mapData.zoom);
