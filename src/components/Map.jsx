@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+// consider graphql instead of axios
 import L from 'leaflet';
 
 function Map() {
