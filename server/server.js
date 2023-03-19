@@ -1,13 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // change lat lng 
-
 app.get('/api/map', (req, res) => {
   const mapData = {
     center: [51.505, -0.09],
@@ -19,6 +20,14 @@ app.get('/api/map', (req, res) => {
     ],
   };
   res.send(mapData);
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
 app.listen(port, () => {
