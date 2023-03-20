@@ -1,35 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-// consider graphql instead of axios
-import L from 'leaflet';
+import React from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 function Map() {
-  const [mapData, setMapData] = useState(null);
+  const position = [51.505, -0.09];
 
-  useEffect(() => {
-    const fetchMapData = async () => {
-      const result = await axios('/api/map');
-      setMapData(result.data);
-    };
-    fetchMapData();
-  }, []);
-
-  // Need to adjust z,x,y and set coordinates for further testing
-  // dont move this section 
-  useEffect(() => {
-    if (mapData) {
-      const map = L.map('map').setView(mapData.center, mapData.zoom);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data &copy; OpenStreetMap contributors',
-        maxZoom: 18,
-      }).addTo(map);
-      mapData.markers.forEach((marker) => {
-        L.marker([marker.lat, marker.lng]).addTo(map);
-      });
-    }
-  }, [mapData]);
-
-  return <div id="map"></div>;
+  return (
+    <MapContainer
+      center={position}
+      zoom={13}
+      scrollWheelZoom={false}
+      style={{ height: "100vh", width: "100vw" }}
+    >
+      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      <Marker position={position}>
+        <Popup>
+          A pretty CSS3 popup. <br /> Easily customizable.
+        </Popup>
+      </Marker>
+    </MapContainer>
+  );
 }
 
 export default Map;

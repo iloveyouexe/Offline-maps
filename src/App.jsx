@@ -1,7 +1,6 @@
-import React from 'react';
-import Map from './components/Map';
-
-// change components sorting
+import React from "react";
+import Map from "./components/Map";
+import "leaflet/dist/leaflet.css";
 
 function App() {
   return (

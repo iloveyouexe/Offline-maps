@@ -1,18 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
+
+
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
+    <meta charset="utf-8">
     <title>holy smokes</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha384-cbQ5U5l5U2QkUqD3YBZMnFoeoUfH+RJ/cWn1lv/DdbxftGzTZZF/9XpJ1g7+G99D" crossorigin=""/>
   </head>
+
+
+
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <h1> 
+      hello mistake project welcome to clown world 
+    </h1>
+
+    <form>
+
+      <label for="latitude">Latitude:</label>
+      <input type="text" id="latitude" name="latitude">
+      <br>
+      <label for="longitude">Longitude:</label>
+      <input type="text" id="longitude" name="longitude">
+      <br>
+      <button type="submit">Update Map</button>
+    </form>
+
     <div id="root"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha384-mMQ/FTBlnxKTzGvqw9ULZ+/mNGMUaGMmCjFcw5rPUpy2/hU5x5gb5vppzBYZC8jC" crossorigin=""></script>
+    <script src="/app.js"></script>
+
   </body>
+
+
+
+
 </html>
